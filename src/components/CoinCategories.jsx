@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import { Link } from 'react-router-dom';
+import { Meteors } from "../utils/ui/meteors";
 const CoinCategories = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,20 +25,27 @@ const CoinCategories = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold mb-4">Coin Categories</h1>
+    <div className="container mx-auto p-4 bg-slate-950">
+      <h1 className="text-5xl font-semibold mb-6 text-white text-center">Coin Categories</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <ul>
+        <ul role="list" className="-my-2 space-y-2 grid grid-cols-4 text-white bg-slate-950">
           {categories.map((category) => (
-            <li key={category.category_id} className="border p-4 my-2 rounded-md">
-              <h2 className="text-xl font-semibold">{category.name}</h2>
-              <p className="text-gray-500">Category ID: {category.category_id}</p>
+            <li key={category.category_id} className="group relative border-l-4 border-yellow-500 pl-4 pr-8 py-4 cursor-pointer transition duration-300 ease-in-out hover:pl-6 group-hover:border-l-8">
+              <h2 className="text-xl font-semibold group-hover:text-yellow-500">
+                <Link to={`/categories/${category.slug}`} className="inline-block">
+                  {category.name}
+                </Link>
+              </h2>
+              <p className="mt-1 text-sm text-gray-300 group-hover:text-gray-500">
+                Category ID: {category.category_id}
+              </p>
             </li>
           ))}
         </ul>
       )}
+      <Meteors number={100} />
     </div>
   );
 };

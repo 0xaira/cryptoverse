@@ -17,6 +17,7 @@ const LazyDerivatives = lazy(() => import('./components/Derivatives.jsx'));
 const LazyTrendingCoins = lazy(() => import('./components/TrendingCoins.jsx'));
 const LazyExchangeRates = lazy(() => import('./components/ExchangeRates.jsx'));
 const LazyGlobalData = lazy(() => import('./components/GlobalData.jsx'));
+const LazyNews = lazy(() => import('./components/News.jsx'));
 
 const appRouter = createBrowserRouter([
   { path: '/', element: <App /> },
@@ -32,6 +33,7 @@ const appRouter = createBrowserRouter([
   { path: '/trending', element: <Suspense fallback={<div>Loading...</div>}><LazyTrendingCoins /></Suspense> },
   { path: '/exchangerates', element: <Suspense fallback={<div>Loading...</div>}><LazyExchangeRates /></Suspense> },
   { path: '/globaldata', element: <Suspense fallback={<div>Loading...</div>}><LazyGlobalData /></Suspense> },
+  { path: '/news', element: <Suspense fallback={<div>Loading...</div>}><LazyNews /></Suspense>},
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

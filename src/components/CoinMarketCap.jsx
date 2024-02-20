@@ -24,29 +24,52 @@ const CoinMarketCap = () => {
     fetchCoinMarketCap();
   }, []);
 
+  const truncateContent = (content, maxLength) => {
+    if (!content) return ''; // Add null check here
+  
+    return content.length > maxLength ? content.substring(0, maxLength) + '...' : content;
+  };
+
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold mb-4">Coin Categories</h1>
+    <div className="container mx-auto p-4 bg-slate-950">
+      <h1 className="text-5xl font-semibold mb-6 text-white text-center">Coin Categories</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <ul>
-          {categories.map((category) => (
-            <li key={category.id} className="border p-4 my-2 rounded-md">
-              <h2 className="text-xl font-semibold">{category.name}</h2>
-              <p className="text-gray-500">Market Cap: {category.market_cap}</p>
-              <p className="text-gray-500">24h Market Cap Change: {category.market_cap_change_24h}</p>
-              <p className="text-gray-500">Volume 24h: {category.volume_24h}</p>
-              <p className="text-gray-500">Updated At: {category.updated_at}</p>
-              <p className="text-gray-500">Content: {category.content}</p>
-              <div className="flex space-x-4 mt-4">
-                {category.top_3_coins.map((coinUrl, index) => (
-                  <img key={index} src={coinUrl} alt={`Coin ${index + 1}`} className="w-8 h-8" />
-                ))}
-              </div>
-            </li>
-          ))}
-        </ul>
+        <table className="min-w-full divide-y divide-gray-200 bg-slate-950">
+          <thead>
+            <tr>
+              <th className="px-6 py-3 bg-slate-950 text-left text-lg leading-4 font-medium text-yellow-500 uppercase tracking-wider">Name</th>
+              <th className="px-6 py-3 bg-slate-950 text-left text-lg leading-4 font-medium text-yellow-500 uppercase tracking-wider">Market Cap</th>
+              <th className="px-6 py-3 bg-slate-950 text-left text-lg leading-4 font-medium text-yellow-500 uppercase tracking-wider">24h MC Change</th>
+              <th className="px-6 py-3 bg-slate-950 text-left text-lg leading-4 font-medium text-yellow-500 uppercase tracking-wider">Volume 24h</th>
+              <th className="px-6 py-3 bg-slate-950 text-left text-lg leading-4 font-medium text-yellow-500 uppercase tracking-wider">Last Updated</th>
+              <th className="px-6 py-3 bg-slate-950 text-left text-lg leading-4 font-medium text-yellow-500 uppercase tracking-wider">Content</th>
+              <th className="px-6 py-3 bg-slate-950 text-left text-lg leading-4 font-medium text-yellow-500 uppercase tracking-wider">Top Coins</th>
+            </tr>
+          </thead>
+          <tbody className="bg-slate-950 text-white divide-y divide-gray-200">
+            {categories.map((category) => (
+              <tr key={category.id}>
+                <td className="px-6 py-4 whitespace-no-wrap">
+                  <span className="font-semibold">{category.name}</span>
+                </td>
+                <td className="px-6 py-4 whitespace-no-wrap">${Number(category.market_cap / Math.pow(10, 6)).toFixed(2)}M</td>
+                <td className="px-6 py-4 whitespace-no-wrap">{(category.market_cap_change_24h * 100).toFixed(2)}%</td>
+                <td className="px-6 py-4 whitespace-no-wrap">${(category.volume_24h / Math.pow(10, 6)).toFixed(2)}M</td>
+                <td className="px-6 py-4 whitespace-no-wrap">{category.updated_at}</td>
+                <td className="px-6 py-4 whitespace-no-wrap overflow-hidden overflow-ellipsis max-h-16">
+                  {truncateContent(category.content, 20)}
+                </td>
+                <td className="px-6 py-4 whitespace-no-wrap flex space-x-2">
+                  {category.top_3_coins.slice(0, 3).map((coinUrl, index) => (
+                    <img key={index} src={coinUrl} alt={`Coin ${index + 1}`} className="w-8 h-8" />
+                  ))}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );

@@ -24,21 +24,33 @@ const AssetPlatforms = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold mb-4">Asset Platforms</h1>
+    <div className="container mx-auto p-4 bg-slate-950">
+      <h1 className="text-4xl font-bold mb-6 text-white text-center">Asset Platforms</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <ul>
-          {platforms.map((platform) => (
-            <li key={platform.id} className="border p-4 my-2 rounded-md">
-              <h2 className="text-xl font-semibold">{platform.name}</h2>
-              <p className="text-gray-500">ID: {platform.id}</p>
-              <p className="text-gray-500">Chain Identifier: {platform.chain_identifier || 'N/A'}</p>
-              <p className="text-gray-500">Native Coin ID: {platform.native_coin_id}</p>
-            </li>
-          ))}
-        </ul>
+        <table className="min-w-full divide-y divide-gray-200 bg-slate-950">
+          <thead>
+            <tr>
+              <th className="px-6 py-3  text-left text-lg leading-4 font-medium text-yellow-500 uppercase tracking-wider">Name</th>
+              <th className="px-6 py-3  text-left text-lg leading-4 font-medium text-yellow-500 uppercase tracking-wider">ID</th>
+              <th className="px-6 py-3  text-left text-lg leading-4 font-medium text-yellow-500 uppercase tracking-wider">Chain Identifier</th>
+              <th className="px-6 py-3  text-left text-lg leading-4 font-medium text-yellow-500 uppercase tracking-wider">Native Coin ID</th>
+            </tr>
+          </thead>
+          <tbody className="bg-slate-950 divide-y divide-gray-200 text-white ">
+            {platforms.map((platform) => (
+              <tr key={platform.id} className='hover:bg-slate-900'>
+                <td className="px-6 py-4 whitespace-no-wrap ">
+                  <span className="font-semibold">{platform.name}</span>
+                </td>
+                <td className="px-6 py-4 whitespace-no-wrap">{platform.id}</td>
+                <td className="px-6 py-4 whitespace-no-wrap">{platform.chain_identifier || 'N/A'}</td>
+                <td className="px-6 py-4 whitespace-no-wrap">{platform.native_coin_id}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );
