@@ -10,11 +10,12 @@ const AboutUs = () => {
         </div>
         <div className='text-white'>
             <h1 className='text-5xl font-bold'>What Is CryptoVerse</h1>
-            <p className='text-xl text-gray-500 mt-4 mr-28'>Experience a variety of trading on Bitcost. You can use various types of coin transactions such as Spot Trade, Futures Trade, P2P, Staking, Mining, and margin.</p>
-            <h2 className='text-2xl font-bold mt-4'>View real-time cryptocurrency prices</h2>
-            <p className='text-xl text-gray-500 mt-4 mr-28'>Experience a variety of trading on Bitcost. You can use various types of coin transactions such as Spot Trade, Futures Trade, P2P, Staking, Mining, and margin.</p>
-            <h2 className='text-2xl font-bold mt-4'>Buy and sell BTC, ETH, XRP, OKB, Etc...</h2>
-            <p className='text-xl text-gray-500 mt-4 mr-28'>Experience a variety of trading on Bitcost. You can use various types of coin transactions such as Spot Trade, Futures Trade, P2P, Staking, Mining, and margin.</p>
+            <p className='text-xl text-gray-500 mt-4 mr-28'>
+CryptoVerse provides a comprehensive overview of cryptocurrencies and market insights, empowering users with efficient exploration, real-time data, and timely updates for informed investment decisions.</p>
+            <h2 className='text-2xl font-bold mt-4'>Empowering Investors with Insights and Updates</h2>
+            <p className='text-xl text-gray-500 mt-4 mr-28'>CryptoVerse offers sophisticated trading strategies and diverse investment opportunities through Derivatives Exchanges, while also providing insights into popular cryptocurrencies and currency conversion</p>
+            <h2 className='text-2xl font-bold mt-4'>See Global Data, News, Derivates and much more </h2>
+            <p className='text-xl text-gray-500 mt-4 mr-28'>Providing comprehensive cryptocurrency insights, real-time market data, and a hub for exploring investment platforms and non-fungible tokens.</p>
         </div>
     </div>
     </>
