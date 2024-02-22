@@ -1,47 +1,64 @@
-import { HoverEffect } from "../utils/ui/card-hover-effect";
-
-export function CardHoverEffectDemo() {
+import React from 'react';
+import about from '../img/about-banner.png'
+const AboutUs = () => {
   return (
-    <div className="max-w-5xl mx-auto px-8">
-      <HoverEffect items={projects} />
-    </div>
+    <section className="mt-14" aria-label="about" data-section>
+      <div className="flex">
+
+        <figure className="about-banner">
+          <img src={about} width="748" height="436" loading="lazy" alt="about banner"
+            className="w-100" />
+        </figure>
+
+        <div className="text-white">
+
+          <h2 className="h2 section-title text-white">What Is Cryptex</h2>
+
+          <p className="section-text">
+            Experience a variety of trading on Bitcost. You can use various types of coin transactions such as Spot
+            Trade, Futures
+            Trade, P2P, Staking, Mining, and margin.
+          </p>
+
+          <ul className="section-list">
+
+            <li className="section-item">
+              <div className="title-wrapper">
+                <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+
+                <h3 className="h3 list-title">View real-time cryptocurrency prices</h3>
+              </div>
+
+              <p className="item-text">
+                Experience a variety of trading on Bitcost. You can use various types of coin transactions such as
+                Spot Trade, Futures
+                Trade, P2P, Staking, Mining, and margin.
+              </p>
+            </li>
+
+            <li className="section-item">
+              <div className="title-wrapper">
+                <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+
+                <h3 className="h3 list-title">Buy and sell BTC, ETH, XRP, OKB, Etc...</h3>
+              </div>
+
+              <p className="item-text">
+                Experience a variety of trading on Bitcost. You can use various types of coin transactions such as
+                Spot Trade, Futures
+                Trade, P2P, Staking, Mining, and margin.
+              </p>
+            </li>
+
+          </ul>
+
+          <a href="#" className="btn btn-primary">Explore More</a>
+
+        </div>
+
+      </div>
+    </section>
   );
-}
-export const projects = [
-  {
-    title: "Stripe",
-    description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "https://stripe.com",
-  },
-  {
-    title: "Netflix",
-    description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-    link: "https://netflix.com",
-  },
-  {
-    title: "Google",
-    description:
-      "A multinational technology company that specializes in Internet-related services and products.",
-    link: "https://google.com",
-  },
-  {
-    title: "Meta",
-    description:
-      "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
-    link: "https://meta.com",
-  },
-  {
-    title: "Amazon",
-    description:
-      "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
-    link: "https://amazon.com",
-  },
-  {
-    title: "Microsoft",
-    description:
-      "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-    link: "https://microsoft.com",
-  },
-];
+};
+
+export default AboutUs;

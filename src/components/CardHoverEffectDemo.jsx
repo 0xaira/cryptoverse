@@ -13,43 +13,40 @@ export function CardHoverEffectDemo() {
 }
 export const projects = [
   {
-    title: "Stripe",
+    title: "Coins List & Categories",
     description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "https://stripe.com",
+      "Our Coin List provides a comprehensive cryptocurrency overview, while Coin Categories classify coins for efficient exploration, empowering informed investment decisions.",
+    link: "",
   },
   {
-    title: "Netflix",
+    title: "Coin Market Cap & Exchanges",
     description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-    link: "https://netflix.com",
+      "Our Coin Market Cap feature offers real-time cryptocurrency market capitalization data, complemented by insights into cryptocurrency trading platforms in our Exchanges feature.",
+    link: "",
   },
   {
-    title: "Google",
+    title: "Asset Platforms & NFTs",
     description:
-      "A multinational technology company that specializes in Internet-related services and products.",
-    link: "https://google.com",
+      "Our Asset Platforms feature serves as a hub for exploring investment platforms, while NFTs offer insights into the dynamic world of non-fungible tokens.",
+    link: "",
   },
   {
-    title: "Meta",
+    title: "Derivatives Exchanges & Derivatives",
     description:
-      "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
-    link: "https://meta.com",
+      "Our Derivatives Exchanges enable sophisticated trading strategies, while Derivatives offer diverse investment opportunities through asset-derived instruments.",
+    link: "",
   },
   {
-    title: "Amazon",
+    title: "Trending Coins & Exchange Rates",
     description:
-      "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
-    link: "https://amazon.com",
+      "Our TrendingCoins feature highlights popular cryptocurrencies, while ExchangeRates provides up-to-date currency conversion information.",
+    link: "",
   },
- 
-
   {
-    title: "Microsoft",
+    title: "Global Data & News",
     description:
-      "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-    link: "https://microsoft.com",
+      "Our Global Data feature provides comprehensive insights into global market metrics. Additionally, our News feature delivers timely updates on market developments and trends, keeping users ahead in the financial landscape.",
+    link: "",
   },
 ];
 
-            

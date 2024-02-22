@@ -6,13 +6,13 @@ const News = () => {
   useEffect(() => {
     const fetchNews = async () => {
       const url = 'https://cryptocurrency-news2.p.rapidapi.com/v1/coindesk';
-      const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': 'e810f2a74dmshc319637ce06720bp1e0852jsn26765dd56bda',
-          'X-RapidAPI-Host': 'cryptocurrency-news2.p.rapidapi.com'
-        }
-      };
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'e810f2a74dmshc319637ce06720bp1e0852jsn26765dd56bda',
+		'X-RapidAPI-Host': 'cryptocurrency-news2.p.rapidapi.com'
+	}
+};
 
       try {
         const response = await fetch(url, options);
