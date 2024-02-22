@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Meteors } from "../utils/ui/meteors";
 import Nav from './Nav';
-const CoinMarketCap = () => {
+const CoinMarketCapHome = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -14,7 +14,7 @@ const CoinMarketCap = () => {
         }
         const data = await response.json();
         console.log(data);
-        setCategories(data);
+        setCategories(data.slice(0,6));
         setLoading(false);
       } catch (error) {
         console.error('Error fetching coin categories:', error);
@@ -33,9 +33,9 @@ const CoinMarketCap = () => {
 
   return (
     <>
-    <div className='z-20 fixed'><Nav/></div>
+
     <div className="container mx-auto p-4 bg-slate-950 mt-14">
-      <h1 className="text-5xl font-semibold mb-6 text-amber-400 text-center">Coin MarketCap</h1>
+      <h1 className="text-5xl font-semibold mb-6 text-amber-400 text-center">Coin Market Cap</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -53,7 +53,7 @@ const CoinMarketCap = () => {
           </thead>
           <tbody className="bg-slate-950 text-white divide-y divide-gray-200">
             {categories.map((category) => (
-              <tr key={category.id}>
+              <tr key={category.id} className='hover:bg-slate-900'>
                 <td className="px-6 py-4 whitespace-no-wrap">
                   <span className="font-semibold">{category.name}</span>
                 </td>
@@ -80,4 +80,4 @@ const CoinMarketCap = () => {
   );
 };
 
-export default CoinMarketCap;
+export default CoinMarketCapHome;

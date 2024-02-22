@@ -22,7 +22,7 @@ const TrendingCoins = () => {
 
     fetchTrendingCoins();
   }, []);
-
+  
   return (
     <>
     <div className='z-20 fixed'><Nav/></div>
@@ -63,6 +63,7 @@ const TrendingCoins = () => {
         </div>
       )}
     </div>
+
     </>
   );
 };
