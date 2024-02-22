@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import Nav from './Nav';
+import { Meteors } from "../utils/ui/meteors";
 const Exchanges = () => {
   const [exchanges, setExchanges] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,25 +25,31 @@ const Exchanges = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold mb-4">Exchanges</h1>
+    <>
+    <div className='z-20 fixed'><Nav/></div>
+    <div className="container mx-auto p-4 bg-slate-950 text-white mt-14">
+      <h1 className="text-5xl font-bold mb-4 text-amber-400 text-center">Exchanges</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <ul>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {exchanges.map((exchange) => (
-            <li key={exchange.id} className="border p-4 my-2 rounded-md">
-              <h2 className="text-xl font-semibold">{exchange.name}</h2>
-              <p className="text-gray-500">Year Established: {exchange.year_established}</p>
-              <p className="text-gray-500">Country: {exchange.country}</p>
-              <p className="text-gray-500">Description: {exchange.description}</p>
-              <p className="text-gray-500">Trade Volume 24h BTC: {exchange.trade_volume_24h_btc}</p>
-              <img src={exchange.image} alt={exchange.name} className="w-32 h-32 mt-4" />
-            </li>
+            <div key={exchange.id} className="border rounded-xl overflow-hidden group cursor-pointer transform transition duration-200 hover:-translate-y-1 hover:scale-110">
+              <img src={exchange.image} alt={exchange.name} className="w-full h-40 object-cover rounded-t-xl" />
+              <div className="p-4">
+                <h2 className="text-xl font-semibold mb-2">{exchange.name}</h2>
+                <p className="text-gray-400">Year Established: {exchange.year_established}</p>
+                <p className="text-gray-400">Country: {exchange.country}</p>
+                {/* <p className="text-gray-500">{exchange.description}</p> */}
+                <p className="text-gray-400">Trade Volume 24h BTC: {exchange.trade_volume_24h_btc}</p>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
+    <Meteors number={100} />
+    </>
   );
 };
 

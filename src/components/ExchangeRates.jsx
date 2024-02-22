@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import { Meteors } from "../utils/ui/meteors";
+import Nav from './Nav';
 const ExchangeRates = () => {
   const [exchangeRates, setExchangeRates] = useState({});
   const [loading, setLoading] = useState(true);
@@ -24,23 +25,39 @@ const ExchangeRates = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold mb-4">Exchange Rates</h1>
+    <>
+    <div className='z-20 fixed'><Nav/></div>
+    <div className="container mx-auto p-4 bg-slate-950 mt-14">
+      <h1 className="text-4xl font-bold mb-6 text-amber-400 text-center">Exchange Rate</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <ul>
-          {Object.entries(exchangeRates).map(([key, value]) => (
-            <li key={key} className="border p-4 my-2 rounded-md">
-              <h2 className="text-xl font-semibold">{value.name}</h2>
-              <p className="text-gray-500">Unit: {value.unit}</p>
-              <p className="text-gray-500">Value: {value.value}</p>
-              <p className="text-gray-500">Type: {value.type}</p>
-            </li>
-          ))}
-        </ul>
+        <div className="overflow-x-auto">
+          <table className="table-auto w-full">
+            <thead className='text-white border-b text-bold'>
+              <tr>
+                <th className="px-4 py-2 text-left">Name</th>
+                <th className="px-4 py-2 text-left">Unit</th>
+                <th className="px-4 py-2 text-left">Value</th>
+                <th className="px-4 py-2 text-left">Type</th>
+              </tr>
+            </thead>
+            <tbody className='text-white'>
+              {Object.entries(exchangeRates).map(([key, value]) => (
+                <tr key={key} className="border-b">
+                  <td className="px-4 py-2">{value.name}</td>
+                  <td className="px-4 py-2">{value.unit}</td>
+                  <td className="px-4 py-2">{value.value}</td>
+                  <td className="px-4 py-2">{value.type}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
+    <Meteors number={100} />
+    </>
   );
 };
 

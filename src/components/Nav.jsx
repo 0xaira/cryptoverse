@@ -24,7 +24,7 @@ const Nav = () => {
   const secondHalf = links.slice(6);
 
   return (
-    <div className='shadow-2xl w-full fixed top-0 left-0 bg-slate-900'>
+    <div className='shadow-4xl w-full fixed top-0 left-0 bg-slate-950'>
       <div className='md:flex items-center justify-between bg-slate-900 py-4 md:px-10 px-7'>
         <div className='flex items-center space-x-8'>
           <ul className='flex items-center space-x-8'>
@@ -35,7 +35,9 @@ const Nav = () => {
             ))}
           </ul>
 
-          <div className='font-bold text-xl text-white'>𝗖𝗿𝘆𝗽𝘁𝗼𝗩𝗲𝗿𝘀𝗲</div>
+          <Link to={'/'}>
+      <div className='font-bold text-xl text-white'>𝗖𝗿𝘆𝗽𝘁𝗼𝗩𝗲𝗿𝘀𝗲</div>
+    </Link>
 
           <ul className='flex items-center space-x-8'>
             {secondHalf.map((link) => (

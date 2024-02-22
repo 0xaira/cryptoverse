@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import { Meteors } from "../utils/ui/meteors";
+import Nav from './Nav';
 const AssetPlatforms = () => {
   const [platforms, setPlatforms] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,8 +25,10 @@ const AssetPlatforms = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4 bg-slate-950">
-      <h1 className="text-4xl font-bold mb-6 text-white text-center">Asset Platforms</h1>
+    <>
+    <div className='z-20 fixed'><Nav/></div>
+    <div className="container mx-auto p-4 bg-slate-950 mt-14">
+      <h1 className="text-4xl font-bold mb-6 text-amber-400 text-center">Asset Platforms</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -52,7 +55,9 @@ const AssetPlatforms = () => {
           </tbody>
         </table>
       )}
+      <Meteors number={100} />
     </div>
+    </>
   );
 };
 

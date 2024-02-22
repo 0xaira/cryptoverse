@@ -5,18 +5,16 @@ import Nav from './components/Nav'
 import Hero from './components/Hero'
 import {MeteorsDemo} from './components/MeteorsDemo'
 import {BackgroundGradientDemo} from './components/BackgroundGradientDemo'
+import {CardHoverEffectDemo} from './components/CardHoverEffectDemo'
 const App = () => {
   return (
     <>
-    <div className=''>
       <Nav/>
+      <div className='bg-slate-950'>
       <Hero/>
-      {/* <MeteorsDemo/> */}
-      <div className='flex gap-6'>
-      <BackgroundGradientDemo/>
       
+      <CardHoverEffectDemo/>
       </div>
-    </div>
     </>
   )
 }

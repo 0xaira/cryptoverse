@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import Nav from './Nav';
 const News = () => {
   const [news, setNews] = useState([]);
 
@@ -31,8 +31,10 @@ const News = () => {
   };
 
   return (
+    <>
+    <div className='z-20 fixed'><Nav/></div>
     <div className="px-4 bg-slate-950">
-      <h1 className="text-3xl font-bold mb-5 text-white text-center  ">Crypto News</h1>
+      <h1 className="text-3xl font-bold mb-5 text-amber-400 text-center  mt-14 ">Crypto News</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 text-white" >
         {news.map((article, index) => (
           <div key={index} className="w-full sm:w-[300px] lg:w-[220px] md:w-[220px] group rounded-xl overflow-hidden hover:shadow-lg cursor-pointer mx-auto my-4 text-white">
@@ -47,6 +49,7 @@ const News = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Meteors } from "../utils/ui/meteors";
+import Nav from './Nav';
 const CoinList = () => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -24,17 +25,19 @@ const CoinList = () => {
   }, []);
 
   return (
-    <div className="container mx-auto p-4 bg-slate-950">
-      <h1 className="text-5xl font-bold mb-4 text-white text-center">Coin List</h1>
+    <>
+    <div className='z-20 fixed'><Nav/></div>
+    <div className="container mx-auto p-4 bg-slate-950 mt-14">
+      <h1 className="text-5xl font-bold mb-4 text-amber-400 text-center">Coin List</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <table className="min-w-full divide-y divide-gray-200">
           <thead className=''>
             <tr>
-              <th className="px-6 py-3 bg-slate-950 text-left text-lg leading-4 font-medium text-white uppercase tracking-wider">Coin Name</th>
-              <th className="px-6 py-3 bg-slate-950 text-left text-lg leading-4 font-medium text-white uppercase tracking-wider">Symbol</th>
-              <th className="px-6 py-3 bg-slate-950 text-left text-lg leading-4 font-medium text-white uppercase tracking-wider">ID</th>
+              <th className="px-6 py-3 bg-slate-950 text-left text-lg leading-4 font-medium text-amber-400 uppercase tracking-wider">Coin Name</th>
+              <th className="px-6 py-3 bg-slate-950 text-left text-lg leading-4 font-medium text-amber-400 uppercase tracking-wider">Symbol</th>
+              <th className="px-6 py-3 bg-slate-950 text-left text-lg leading-4 font-medium text-amber-400 uppercase tracking-wider">ID</th>
             </tr>
           </thead>
           <tbody className="bg-slate-950 divide-y divide-gray-200 text-white">
@@ -52,6 +55,7 @@ const CoinList = () => {
       )}
       <Meteors number={100} />
     </div>
+    </>
   );
 };
 

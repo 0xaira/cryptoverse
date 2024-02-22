@@ -1,4 +1,8 @@
 import { HoverEffect } from "../utils/ui/card-hover-effect";
+import React, { useState, useEffect } from 'react';
+import { FaSpinner } from 'react-icons/fa';
+
+
 
 export function CardHoverEffectDemo() {
   return (
@@ -38,6 +42,8 @@ export const projects = [
       "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
     link: "https://amazon.com",
   },
+ 
+
   {
     title: "Microsoft",
     description:
@@ -45,3 +51,5 @@ export const projects = [
     link: "https://microsoft.com",
   },
 ];
+
+            

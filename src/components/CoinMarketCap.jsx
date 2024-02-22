@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import { Meteors } from "../utils/ui/meteors";
+import Nav from './Nav';
 const CoinMarketCap = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,8 +32,10 @@ const CoinMarketCap = () => {
   };
 
   return (
-    <div className="container mx-auto p-4 bg-slate-950">
-      <h1 className="text-5xl font-semibold mb-6 text-white text-center">Coin Categories</h1>
+    <>
+    <div className='z-20 fixed'><Nav/></div>
+    <div className="container mx-auto p-4 bg-slate-950 mt-14">
+      <h1 className="text-5xl font-semibold mb-6 text-amber-400 text-center">Coin Categories</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -72,6 +75,8 @@ const CoinMarketCap = () => {
         </table>
       )}
     </div>
+    <Meteors number={100} />
+    </>
   );
 };
 

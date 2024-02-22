@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaSpinner } from 'react-icons/fa';
-
+import Nav from './Nav';
 const GlobalData = () => {
   const [globalData, setGlobalData] = useState({});
   const [loading, setLoading] = useState(true);
